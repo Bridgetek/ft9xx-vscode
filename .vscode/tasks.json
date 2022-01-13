@@ -1,0 +1,124 @@
+{
+    "version": "2.0.0",
+
+    "options": {
+        "env": {
+            // Set this to the project name. 
+            // The Output files will be called target.bin and target.elf
+            // To debug the code the "program" in launch.json must be target.elf
+            "projectName": "target",
+        }
+    },
+
+    "tasks": [
+        {
+            "label": "Build and Program (Memory)",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "Program Project (Memory)"
+            ],
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": {
+                "pattern": {
+                    "regexp": "^Error:\\s+(.*)$",
+                    "message": 1
+                }
+            }
+        },
+        {
+            "label": "Build Project",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "command": "make.exe",
+            "args": [
+                "TARGET=$env:projectName"
+            ],
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Rebuild Project",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "command": "make.exe",
+            "args": [
+                "TARGET=$env:projectName",
+                "-B"
+            ],
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build"
+        },
+        {
+            "label": "Clean Project",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "command": "make.exe",
+            "args": [
+                "TARGET=$env:projectName",
+                "clean"
+            ],
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build"
+        },
+        {
+            "label": "Program Project (Flash)",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "command": "C:\\Program Files (x86)\\Bridgetek\\FT9xx Toolchain\\Toolchain\\programmer\\dist\\FT900Prog.exe",
+            "args": [
+                "--loadflash",
+                "FT900_DEBUG/$env:projectName.bin",
+                "--onewire",
+                "--noReset"
+            ],
+            "problemMatcher": {
+                "pattern": {
+                    "regexp": "^Error:\\s+(.*)$",
+                    "message": 1
+                }
+            },
+            "dependsOn": "Build Project"
+        },
+        {
+            "label": "Program Project (Memory)",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "command": "C:\\Program Files (x86)\\Bridgetek\\FT9xx Toolchain\\Toolchain\\programmer\\dist\\FT900Prog.exe",
+            "args": [
+                "--loadpm",
+                "FT900_DEBUG/$env:projectName.bin",
+                "--onewire",
+                "--noReset"
+            ],
+            "problemMatcher": {
+                "pattern": {
+                    "regexp": "^Error:\\s+(.*)$",
+                    "message": 1
+                }
+            },
+            "dependsOn": "Build Project"
+        }
+    ],
+}
