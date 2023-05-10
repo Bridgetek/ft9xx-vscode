@@ -1,14 +1,20 @@
 {
     "version": "2.0.0",
 
-    "options": {
-        "env": {
-            // Set this to the project name. 
-            // The Output files will be called target.bin and target.elf
-            // To debug the code the "program" in launch.json must be target.elf
-            "projectName": "target",
-        }
-    },
+    "inputs": [
+          {
+            "type": "pickString",
+            "id": "compileConfig",
+            "description": "Configuration type to use?",
+            "options": [
+                "FT90x_Debug",
+                "FT90x_Release",
+                "FT93x_Debug",
+                "FT93x_Release"
+                ],
+            "default": "FT90x_Debug"
+          },
+        ],
 
     "tasks": [
         {
@@ -36,7 +42,7 @@
             },
             "command": "make.exe",
             "args": [
-                "TARGET=$env:projectName"
+                "CONFIG=${input:compileConfig}"
             ],
             "problemMatcher": [
                 "$gcc"
@@ -47,6 +53,42 @@
             }
         },
         {
+            "label": "Build Project (FT90x_Debug)",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "command": "make.exe",
+            "args": [
+                "CONFIG=FT90x_Debug"
+            ],
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            }
+        },
+        {
+            "label": "Build Project (FT93x_Debug)",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "command": "make.exe",
+            "args": [
+                "CONFIG=FT93x_Debug"
+            ],
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            }
+        },
+        {
             "label": "Rebuild Project",
             "type": "shell",
             "options": {
@@ -54,7 +96,7 @@
             },
             "command": "make.exe",
             "args": [
-                "TARGET=$env:projectName",
+                "CONFIG=${input:compileConfig}",
                 "-B"
             ],
             "problemMatcher": [
@@ -70,7 +112,7 @@
             },
             "command": "make.exe",
             "args": [
-                "TARGET=$env:projectName",
+                "CONFIG=${input:compileConfig}",
                 "clean"
             ],
             "problemMatcher": [
@@ -84,10 +126,10 @@
             "options": {
                 "cwd": "${workspaceFolder}"
             },
-            "command": "C:\\Program Files (x86)\\Bridgetek\\FT9xx Toolchain\\Toolchain\\programmer\\dist\\FT900Prog.exe",
+            "command": "${env:FT9XX_TOOLCHAIN}\\programmer\\FT9xxProg.exe",
             "args": [
                 "--loadflash",
-                "FT900_DEBUG/$env:projectName.bin",
+                "${input:compileConfig}/${workspaceFolderBasename}.bin",
                 "--onewire",
                 "--noReset"
             ],
@@ -105,10 +147,10 @@
             "options": {
                 "cwd": "${workspaceFolder}"
             },
-            "command": "C:\\Program Files (x86)\\Bridgetek\\FT9xx Toolchain\\Toolchain\\programmer\\dist\\FT900Prog.exe",
+            "command": "${FT9XX_TOOLCHAIN}\\programmer\\FT9xxProg.exe",
             "args": [
                 "--loadpm",
-                "FT900_DEBUG/$env:projectName.bin",
+                "${input:compileConfig}/${workspaceFolderBasename}.bin",
                 "--onewire",
                 "--noReset"
             ],

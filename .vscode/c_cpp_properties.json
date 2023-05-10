@@ -1,12 +1,12 @@
 {
     "configurations": [
         {
-            "name": "FT900",
+            "name": "FT90x",
             "includePath": [
                 // Toolchain installed FT90X SDK.
-                "C:/Program Files (x86)/Bridgetek/FT9xx Toolchain/Toolchain/hardware/include",
-                // Library code included.
-                "lib/tinyprintf/",
+                "${env:FT9XX_TOOLCHAIN}/hardware/include",
+                // Add any library code included.
+                //"lib/tinyprintf/",
                 //"lib/FreeRTOS/",
                 // Local header files.
                 "."
@@ -15,7 +15,28 @@
                 "__FT900__"
             ],
             "windowsSdkVersion": "10.0.18362.0",
-            "compilerPath": "C:/Program Files (x86)/Bridgetek/FT9xx Toolchain/Toolchain/tools/bin/ft32-elf-gcc",
+            "compilerPath": "${env:FT9XX_COMPILER}/bin/ft32-elf-gcc",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "intelliSenseMode": "windows-gcc-x64",
+            "configurationProvider": "ms-vscode.makefile-tools"
+        },
+        {
+            "name": "FT93x",
+            "includePath": [
+                // Toolchain installed FT90X SDK.
+                "${env:FT9XX_TOOLCHAIN}/hardware/include",
+                // Add any library code included.
+                //"lib/tinyprintf/",
+                //"lib/FreeRTOS/",
+                // Local header files.
+                "."
+            ],
+            "defines": [
+                "__FT930__"
+            ],
+            "windowsSdkVersion": "10.0.18362.0",
+            "compilerPath": "${env:FT9XX_COMPILER}/bin/ft32-elf-gcc",
             "cStandard": "c11",
             "cppStandard": "c++11",
             "intelliSenseMode": "windows-gcc-x64",

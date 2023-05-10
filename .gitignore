@@ -1,0 +1,6 @@
+*.bak
+*.bin
+FT90x_Debug
+FT90x_Release
+FT93x_Debug
+FT93x_Release

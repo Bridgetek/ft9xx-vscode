@@ -18,6 +18,6 @@ The output binary file for the build will be in the file FT900_DEBUG/outputname.
 
 ### Debugging
 
-To start debugging the "Run -> Start Debugging" menu item is used. This will ensure that the project is build and programmed into the FT9xx device before starting the debugger. The code will be programmed into Program Memory by default rather than Flash Memory. 
+To start debugging the "Run -> Start Debugging" menu item is used. This will ensure that the project is build and programmed into the FT9xx device before starting the debugger. The code can be programmed into either Flash Memory or Program Memory. 
 
-The debugging progess requires that a bridge program is started before gdb is started. The bridge program is written in python (compatible with python 3 and 2.7+). The gdb code is instructed to connect to the python bridge code via a network socket (localhost:9998).
+The debugging progess requires that a bridge program is started before gdb is started. The bridge program part of FT9xxProg.exe and will program the device and then provide the bridge function. The gdb code is instructed to connect to the bridge program via a network socket (localhost:9998).

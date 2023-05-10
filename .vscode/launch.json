@@ -5,27 +5,87 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Debug",
+            "name": "FT90x_Debug (Flash Memory)",
             "type": "cppdbg",
             "MIMode": "gdb",
             "request": "launch",
             "environment": [
             ],
             "cwd": "${workspaceFolder}", 
-            "program": "FT900_DEBUG/target.elf",
-            "preLaunchTask": "Build and Program (Memory)",
-            "target": "localhost:9998",
-            "remote": true,
-            "gdbpath": "C:/Program Files (x86)/Bridgetek/FT9xx Toolchain/Toolchain/tools/bin/ft32-elf-gdb.exe",
+            "program": "FT90x_Debug\\${workspaceFolderBasename}.elf",
+            "preLaunchTask": "Build Project (FT90x_Debug)",
             "stopAtEntry": true,
-            "console": "externalTerminal",
-            "miDebuggerPath": "C:/Program Files (x86)/Bridgetek/FT9xx Toolchain/Toolchain/tools/bin/ft32-elf-gdb.exe",
-            //"miDebuggerArgs": "-x lib\\FreeRTOS\\.gdbinit-FreeRTOS-helpers",
+            "miDebuggerPath": "${env:FT9XX_COMPILER}\\bin\\ft32-elf-gdb.exe",
+            "miDebuggerArgs": "-x ${env:FT9XX_TOOLCHAIN}\\hardware\\.gdbinit",
             "miDebuggerServerAddress": "localhost:9998",
             "launchCompleteCommand": "None",
-            "debugServerPath": "C:\\Users\\gordon.mcnab\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+            "debugServerPath": "${env:FT9XX_TOOLCHAIN}\\programmer\\FT9xxProg.exe",
             "debugServerArgs": 
-                "\"C:/Program Files (x86)/Bridgetek/FT9xx Toolchain/Toolchain/utilities/gdb_bridge.py\" live pm",
+                "--loadflash FT90x_Debug\\${workspaceFolderBasename}.bin --onewire --device 0 --quiet --gdb",
+            "serverStarted": "Waiting for GDB connection request..."
+            //"rtos": "FreeRTOS",
+        },
+        {
+            "name": "FT93x_Debug (Flash Memory)",
+            "type": "cppdbg",
+            "MIMode": "gdb",
+            "request": "launch",
+            "environment": [
+            ],
+            "cwd": "${workspaceFolder}", 
+            "program": "FT93x_Debug\\${workspaceFolderBasename}.elf",
+            "preLaunchTask": "Build Project (FT93x_Debug)",
+            "stopAtEntry": true,
+            "miDebuggerPath": "${env:FT9XX_COMPILER}\\bin\\ft32-elf-gdb.exe",
+            "miDebuggerArgs": "-x ${env:FT9XX_TOOLCHAIN}\\hardware\\.gdbinit",
+            "miDebuggerServerAddress": "localhost:9998",
+            "launchCompleteCommand": "None",
+            "debugServerPath": "${env:FT9XX_TOOLCHAIN}\\programmer\\FT9xxProg.exe",
+            "debugServerArgs": 
+                "--loadflash FT93x_Debug\\${workspaceFolderBasename}.bin --onewire --device 1 --quiet --gdb",
+            "serverStarted": "Waiting for GDB connection request..."
+            //"rtos": "FreeRTOS",
+        },
+        {
+            "name": "FT90x_Debug (Program Memory)",
+            "type": "cppdbg",
+            "MIMode": "gdb",
+            "request": "launch",
+            "environment": [
+            ],
+            "cwd": "${workspaceFolder}", 
+            "program": "FT90x_Debug\\${workspaceFolderBasename}.elf",
+            "preLaunchTask": "Build Project (FT90x_Debug)",
+            "stopAtEntry": true,
+            "miDebuggerPath": "${env:FT9XX_COMPILER}\\bin\\ft32-elf-gdb.exe",
+            "miDebuggerArgs": "-x ${env:FT9XX_TOOLCHAIN}\\hardware\\.gdbinit",
+            "miDebuggerServerAddress": "localhost:9998",
+            "launchCompleteCommand": "None",
+            "debugServerPath": "${env:FT9XX_TOOLCHAIN}\\programmer\\FT9xxProg.exe",
+            "debugServerArgs": 
+                "--loadpm FT90x_Debug\\${workspaceFolderBasename}.bin --onewire --device 0 --quiet --gdb",
+            "serverStarted": "Waiting for GDB connection request..."
+            //"rtos": "FreeRTOS",
+        },
+        {
+            "name": "FT93x_Debug (Program Memory)",
+            "type": "cppdbg",
+            "MIMode": "gdb",
+            "request": "launch",
+            "environment": [
+            ],
+            "cwd": "${workspaceFolder}", 
+            "program": "FT93x_Debug\\${workspaceFolderBasename}.elf",
+            "preLaunchTask": "Build Project (FT93x_Debug)",
+            "stopAtEntry": true,
+            "miDebuggerPath": "${env:FT9XX_COMPILER}\\bin\\ft32-elf-gdb.exe",
+            "miDebuggerArgs": "-x ${env:FT9XX_TOOLCHAIN}\\hardware\\.gdbinit",
+            "miDebuggerServerAddress": "localhost:9998",
+            "launchCompleteCommand": "None",
+            "debugServerPath": "${env:FT9XX_TOOLCHAIN}\\programmer\\FT9xxProg.exe",
+            "debugServerArgs": 
+                "--loadpm FT93x_Debug\\${workspaceFolderBasename}.bin --onewire --device 1 --quiet --gdb",
+            "serverStarted": "Waiting for GDB connection request..."
             //"rtos": "FreeRTOS",
         }
     ]
