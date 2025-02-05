@@ -14,6 +14,8 @@ The build process uses a Makefile in the top level directory.
 Build tasks are accessed through the "Terminal -> Run Task..." menu item.
 This Makefile has 2 parameters which can be set during the call from the command line, TARGET and CONFIG. The default values are the name of the current directory for TARGET and DEBUG for the CONFIG. If the value of CONFIG is not DEBUG then a release build will be performed. For example to build with a targetname outfilename which is a debug build use the following command line:
 > make TARGET=outputname CONFIG=DEBUG
+
+
 The output binary file for the build will be in the file FT900_DEBUG/outputname.bin and the ELF file for debugging is FT900_DEBUG/outputname.elf.
 
 ### Debugging
