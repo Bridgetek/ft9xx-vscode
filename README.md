@@ -41,7 +41,7 @@ Using the `Command Palette` (Ctrl + Shift + P)
 - Or, click the status bar icon for quick access.
 The extension provides several commands that can be accessed via the Command Palette (`Ctrl+Shift+P`)
 
-![VSCode Command Palette](https://github.com/BridgetekChip/FT9xx-Toolchain-VSCode/tree/development/images/CommandPalette.png)
+![VSCode Command Palette](https://raw.githubusercontent.com/Bridgetek/ft9xx-vscode/development/images/CommandPalette.png)
 
 Command list and explanation:
 
@@ -70,7 +70,7 @@ If you wanna try the GUI:
 
 Status bar:
 
-![Status bar](https://github.com/BridgetekChip/FT9xx-Toolchain-VSCode/tree/development/images/StatusBar.png)
+![Status bar](https://raw.githubusercontent.com/Bridgetek/ft9xx-vscode/development/images/StatusBar.png)
 
 In the status bar, users can configure the following:
 
@@ -90,7 +90,7 @@ User configuration (Global configuration), we can go to user setting json file t
 - `ft9xx.buildTool`: This setting indicates the specific build tool or script used to compile and link your project. It could be a makefile, a custom build script, or any other tool that orchestrates the build process. Set this to the path of the build tool or script you are using.
 
 Alternative way is using the `Extension config`:
-![Extension config](https://github.com/BridgetekChip/FT9xx-Toolchain-VSCode/tree/development/images/ExtentionConfig.png)
+![Extension config](https://raw.githubusercontent.com/Bridgetek/ft9xx-vscode/development/images/ExtentionConfig.png)
 
 Workspace configuration:
 
