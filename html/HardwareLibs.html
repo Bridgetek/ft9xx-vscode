@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <title>Support Table</title>
+</head>
+
+<body>
+    <div>
+        <h1>Hardware libraries</h1>
+        <p> Select the hardware library which you need to import to your project in the table below</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Library Name</th>
+                    <th>Description</th>
+                    <th>Support FT90x</th>
+                    <th>Support FT930x</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <tr onclick="addHardwareLib('Complete library')">
+                    <td>Complete library</td>
+                    <td>All source and include files for the Hardware Library</td>
+                    <td>✅</td>
+                    <td>✅</td>
+                </tr> -->
+                <tr onclick="addHardwareLib('ADC Driver')">
+                    <td>ADC Driver</td>
+                    <td>Analog to Digital Converter Driver</td>
+                    <td>✅</td>
+                    <td>✅</td>
+                </tr>
+                <tr onclick="addHardwareLib('Bootstrap Driver')">
+                    <td>Bootstrap Driver</td>
+                    <td>Simple stdio Mappings for newlib.</td>
+                    <td>✅</td>
+                    <td>✅</td>
+                </tr>
+                <tr onclick="addHardwareLib('CAM Driver')">
+                    <td>CAM Driver</td>
+                    <td>Camera Port Driver</td>
+                    <td>✅</td>
+                    <td>❌</td>
+                </tr>
+                <tr onclick="addHardwareLib('CAN Driver')">
+                    <td>CAN Driver</td>
+                    <td>Controller Area Network Driver</td>
+                    <td>✅</td>
+                    <td>❌</td>
+                </tr>
+                <tr onclick="addHardwareLib('DAC Driver')">
+                    <td>DAC Driver</td>
+                    <td>Digital to Analog Converter Driver</td>
+                    <td>✅</td>
+                    <td>✅</td>
+                </tr>
+                <tr onclick="addHardwareLib('Preset Delays')">
+                    <td>Preset Delays</td>
+                    <td>Predefined Calibrated Delay Loops</td>
+                    <td>✅</td>
+                    <td>✅</td>
+                </tr>
+                <tr onclick="addHardwareLib('Datalogging Driver')">
+                    <td>Data Logging Driver</td>
+                    <td>Flash Memory Datalogger Driver</td>
+                    <td>✅</td>
+                    <td>✅</td>
+                </tr>
+                <tr onclick="addHardwareLib('Ethernet Driver')">
+                    <td>Ethernet Driver</td>
+                    <td>Ethernet interface Driver</td>
+                    <td>✅</td>
+                    <td>❌</td>
+                </tr>
+                <tr onclick="addHardwareLib('GPIO Driver')">
+                    <td>GPIO Driver</td>
+                    <td>General Purpose I/O Interface Driver</td>
+                    <td>✅</td>
+                    <td>✅</td>
+                </tr>
+                <tr onclick="addHardwareLib('I2C Master Driver')">
+                    <td>I2C Master Driver</td>
+                    <td>I2C Master Interface Driver</td>
+                    <td>✅</td>
+                    <td>✅</td>
+                </tr>
+                <tr onclick="addHardwareLib('I2C Slave Driver')">
+                    <td>I2C Slave Driver</td>
+                    <td>I2C Slave Interface Driver</td>
+                    <td>✅</td>
+                    <td>✅</td>
+                </tr>
+                <tr onclick="addHardwareLib('I2S Driver')">
+                    <td>I2S Driver</td>
+                    <td>I2S Audio Interface Driver</td>
+                    <td>✅</td>
+                    <td>❌</td>
+                </tr>
+                <tr onclick="addHardwareLib('Interrupt Driver')">
+                    <td>Interrupt Driver</td>
+                    <td>Interrupt Vector Driver</td>
+                    <td>✅</td>
+                    <td>✅</td>
+                </tr>
+                <tr onclick="addHardwareLib('MEMCTL Driver')">
+                    <td>MEMCTL Driver</td>
+                    <td>Memory Controller Driver</td>
+                    <td>✅</td>
+                    <td>✅</td>
+                </tr>
+                <tr onclick="addHardwareLib('PWM and PCM Driver')">
+                    <td>PWM and PCM Driver</td>
+                    <td>Pulse Width Modulation and Audio Output Controller Driver</td>
+                    <td>✅</td>
+                    <td>✅</td>
+                </tr>
+                <tr onclick="addHardwareLib('RTC Driver')">
+                    <td>RTC Driver</td>
+                    <td>Real Time Clock Driver</td>
+                    <td>✅</td>
+                    <td>✅</td>
+                </tr>
+                <tr onclick="addHardwareLib('SDHost Driver')">
+                    <td>SDHost Driver</td>
+                    <td>SD Card Host Driver</td>
+                    <td>✅</td>
+                    <td>✅</td>
+                </tr>
+                <tr onclick="addHardwareLib('SPI Driver')">
+                    <td>SPI Driver</td>
+                    <td>SPI Bus Interface Driver</td>
+                    <td>✅</td>
+                    <td>✅</td>
+                </tr>
+                <tr onclick="addHardwareLib('DFU Driver')">
+                    <td>DFU Driver</td>
+                    <td>Driver for DFU Functions at Program Start</td>
+                    <td>✅</td>
+                    <td>✅</td>
+                </tr>
+                <tr onclick="addHardwareLib('SYS Driver')">
+                    <td>SYS Driver</td>
+                    <td>Top-level System Driver</td>
+                    <td>✅</td>
+                    <td>✅</td>
+                </tr>
+                <tr onclick="addHardwareLib('Timers Driver')">
+                    <td>Timers Driver</td>
+                    <td>System-level Timers Driver</td>
+                    <td>✅</td>
+                    <td>✅</td>
+                </tr>
+                <tr onclick="addHardwareLib('UART Driver')">
+                    <td>UART Driver</td>
+                    <td>Simple UART Driver</td>
+                    <td>✅</td>
+                    <td>✅</td>
+                </tr>
+                <tr onclick="addHardwareLib('USB Device Driver')">
+                    <td>USB Device Driver</td>
+                    <td>Driver for Implementing a USB Device</td>
+                    <td>✅</td>
+                    <td>✅</td>
+                </tr>
+                <tr onclick="addHardwareLib('USB Host Driver')">
+                    <td>USB Host Driver</td>
+                    <td>Driver for Controlling Devices on the USB Host Interface</td>
+                    <td>✅</td>
+                    <td>❌</td>
+                </tr>
+                <tr onclick="addHardwareLib('Watchdog Driver')">
+                    <td>Watchdog Driver</td>
+                    <td>System Watchdog Driver</td>
+                    <td>✅</td>
+                    <td>✅</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

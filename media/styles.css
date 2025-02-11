@@ -1,0 +1,195 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--vscode-editor-background);
+    color: var(--vscode-editor-foreground);
+    font-family: var(--vscode-font-family);
+    font-size: var(--vscode-font-size);
+    padding: 20px;
+    margin: 0;
+}
+
+h1 {
+    color: var(--vscode-button-background, #007ACC);
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: var(--vscode-editor-foreground, #d4d4d4);
+}
+
+input {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007acc;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.page-icon {
+    width: 32px;
+    height: 32px;
+    background-image: url('resources/Bridgetek-Logo-1.png.svg');
+    filter: brightness(var(--vscode-icon-foreground));
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: var(--vscode-editor-background);
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.side-panel {
+    width: 400px;
+    padding: 20px;
+    background: var(--vscode-editor-background);
+    border-radius: 8px;
+    box-shadow: 0 0px 16px rgba(0, 0, 0, 0.8);
+    position: sticky;
+    top: 20px;
+}
+
+.mapfile-content {
+    flex: 1;
+    overflow-y: auto;
+    max-height: 80vh;
+    padding: 20px;
+    background: var(--vscode-editor-background);
+    border-radius: 8px;
+    box-shadow: 0 0px 16px rgba(0, 0, 0, 0.8);
+    scrollbar-width: thin;
+}
+
+.mapfile-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.mapfile-content::-webkit-scrollbar-track {
+    background: var(--vscode-editor-background);
+}
+
+.mapfile-content::-webkit-scrollbar-thumb {
+    background-color: var(--vscode-scrollbarSlider-background);
+    border-radius: 10px;
+    border: 2px solid var(--vscode-editor-background);
+}
+
+.chart {
+    width: 100%;
+    height: 400px;
+}
+
+.mapfile {
+    width: 100%;
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: var(--vscode-editor-background);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table thead {
+    background-color: var(--vscode-editor-background);
+    color: var(--vscode-editor-foreground);
+}
+
+table th,
+table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+table tbody tr:hover {
+    background-color: #4470e9;
+    color: var(--vscode-editor-foreground);
+}
+
+table tbody td {
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    table thead {
+        font-size: 12px;
+    }
+
+    table th,
+    table td {
+        padding: 8px;
+    }
+}
+
+/* Modify for the Collapse card in the ImageSizePage */
+.card-header {
+    padding: .75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: #161616f1;
+    border-bottom: 1px #0247FE;
+}
+
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #242424;
+    background-clip: border-box;
+    border: 2px solid rgba(0, 0, 0, .125);
+    border-radius: .25rem;
+    box-shadow: 0 0px 16px rgba(0, 0, 0, 0.8);
+}
+
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: .75rem 1.25rem;
+    margin-bottom: -1px;
+    background-color: #161616f1;
+    border: 1px solid rgba(0, 0, 0, .125);
+}
+
+.branch-name {
+    display: inline-block;
+    white-space: normal;
+    font-size: 2.75rem;
+    align-self: center;
+    color: white;
+}
