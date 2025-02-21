@@ -406,6 +406,53 @@ export function registerCommandsList(context: vscode.ExtensionContext, extension
     });
     context.subscriptions.push(cleanFlashCommand);
 
+    const programmingOnewireCommand = vscode.commands.registerCommand('bridgetek-ft9xx.programmingOnewire', async () => {
+        const workspaceFolder = vscode.workspace.workspaceFolders ? vscode.workspace.workspaceFolders[0] : undefined;
+        if (workspaceFolder) {
+            try
+            {
+                const chipset = vscode.workspace.getConfiguration().get<string>('ft9xx.chipset') || 'FT90x';
+                const mode = vscode.workspace.getConfiguration().get<string>('ft9xx.buildMode') || 'Debug';
+                const projectName = vscode.workspace.getConfiguration().get<string>('ft9xx.projectName') || '';
+
+                const taskDefinition: vscode.TaskDefinition = {
+                    type: 'shell',
+                    label: `One-wire Programming ${chipset} ${mode.toLowerCase()} image`
+                };
+
+                const binPath = path.join(workspaceFolder.uri.fsPath, `${chipset}_${mode}`, `${projectName}.bin`);
+                if (!fs.existsSync(binPath)) {
+                    vscode.window.showErrorMessage(`Binary file not found: ${binPath}`);
+                    return;
+                }
+
+                const task = new vscode.Task(
+                    taskDefinition,
+                    workspaceFolder,
+                    `One-wire Programming ${chipset} ${mode.toLowerCase()} image`,
+                    'shell',
+                    new vscode.ShellExecution('FT9xxProg.exe', [
+                        '--loadflash',
+                        `${binPath}`,
+                        '-D',
+                        chipset === 'FT90x' ? '0' : '1',
+                        '--onewire'
+                    ]),
+                    ['$gcc']
+                );
+
+                task.group = vscode.TaskGroup.Build;
+
+                vscode.tasks.executeTask(task);
+            } catch (error) {
+                vscode.window.showErrorMessage(`Error programming via One-wire: ${error}`);
+            }
+        } else {
+            vscode.window.showErrorMessage('Programming: No workspace folder found.');
+        }
+    });
+    context.subscriptions.push(programmingOnewireCommand);
+
     const programmingUartCommand = vscode.commands.registerCommand('bridgetek-ft9xx.programmingUart', async () => {
         const workspaceFolder = vscode.workspace.workspaceFolders ? vscode.workspace.workspaceFolders[0] : undefined;
         if (workspaceFolder) {
