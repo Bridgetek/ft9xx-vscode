@@ -433,10 +433,10 @@ export function registerCommandsList(context: vscode.ExtensionContext, extension
                     'shell',
                     new vscode.ShellExecution('FT9xxProg.exe', [
                         '--loadflash',
-                        `${binPath}`,
+                        `"${binPath}"`,
+                        '--onewire',
                         '-D',
-                        chipset === 'FT90x' ? '0' : '1',
-                        '--onewire'
+                        chipset === 'FT90x' ? '0' : '1'
                     ]),
                     ['$gcc']
                 );
@@ -482,7 +482,7 @@ export function registerCommandsList(context: vscode.ExtensionContext, extension
                     'shell',
                     new vscode.ShellExecution('FT9xxProg.exe', [
                         '--loadflash',
-                        `${binPath}`,
+                        `"${binPath}"`,
                         '-D',
                         chipset === 'FT90x' ? '0' : '1',
                         '--uart',
