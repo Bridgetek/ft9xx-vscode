@@ -1,7 +1,7 @@
 {
   "name": "bridgetek-ft9xx",
   "publisher": "Bridgetek",
-  "displayName": "BridgeTek FT9xx",
+  "displayName": "Bridgetek FT9xx Extension",
   "description": "Tools and utilities for working with Bridgetek FT9xx microcontrollers in Visual Studio Code.",
   "version": "0.0.1",
   "engines": {
