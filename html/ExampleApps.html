@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <title>Example Apps</title>
+</head>
+
+<body>
+    <div class="container">
+    <h1>Import Example Application</h1>
+    <p>List of example applications for FT9xx chip-set family</p>
+
+    <h2>ADC Examples</h2>
+    <p>Analog to Digital Converter Examples.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>App Name</th>
+                <th>Description</th>
+                <th>Support FT90x</th>
+                <th>Support FT930x</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr onclick="importExampleProject('ADC Example 1')">
+                <td>ADC Example 1</td>
+                <td>Continuously poll one ADC channel for a new value and write the value to the UART interface.</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+            <tr onclick="importExampleProject('ADC Example 2')">
+                <td>ADC Example 2</td>
+                <td>Setup in an interrupt on the ADC and write the value to the UART interface when it changes.</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+            <tr onclick="importExampleProject('ADC Example 3')">
+                <td>ADC Example 3</td>
+                <td>Continuously poll multiple ADC channels and periodically write the values to the UART interface.</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+            <tr onclick="importExampleProject('ADC Example 4')">
+                <td>ADC Example 4</td>
+                <td>Obtain ADC channel reading in single shot more and write the values to the UART interface.</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+            <tr onclick="importExampleProject('ADC Example 5')">
+                <td>ADC Example 5</td>
+                <td>Obtain ADC channel reading with an interrupt in single shot more and write the values to the UART interface.</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+    <h2>BCD Examples</h2>
+    <p>Battery Charge Detection Examples.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>App Name</th>
+                <th>Description</th>
+                <th>Support FT90x</th>
+                <th>Support FT930x</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr onclick="importExampleProject('BCD Example 1')">
+                <td>BCD Example 1</td>
+                <td>Display the type of BCD charging port that the device is connected to.</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+    <h2>Camera Examples</h2>
+    <p>Camera Sensor Interface Examples.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>App Name</th>
+                <th>Description</th>
+                <th>Support FT90x</th>
+                <th>Support FT930x</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr onclick="importExampleProject('Camera Example 1')">
+                <td>Camera Example 1</td>
+                <td>Demonstrates how to interface with the camera sensor and I2C control lines.</td>
+                <td>✅</td>
+                <td>❌</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+    <h2>CAN Examples</h2>
+    <p>Controller Area Network Examples.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>App Name</th>
+                <th>Description</th>
+                <th>Support FT90x</th>
+                <th>Support FT930x</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr onclick="importExampleProject('CAN Example 1')">
+                <td>CAN Example 1</td>
+                <td>Transmit CAN messages between CAN0 and CAN1 and poll for the response.</td>
+                <td>✅</td>
+                <td>❌</td>
+            </tr>
+            <tr onclick="importExampleProject('CAN Example 2')">
+                <td>CAN Example 2</td>
+                <td>Transmit CAN messages from CAN0 and show they can be filtered on CAN1.</td>
+                <td>✅</td>
+                <td>❌</td>
+            </tr>
+            <tr onclick="importExampleProject('CAN Example 3')">
+                <td>CAN Example 3</td>
+                <td>Transmit CAN messages and receive and process using interrupts.</td>
+                <td>✅</td>
+                <td>❌</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+    <h2>D2XX Examples</h2>
+    <p>Implement an FTDI D2XX Device on the USB Device.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>App Name</th>
+                <th>Description</th>
+                <th>Support FT90x</th>
+                <th>Support FT930x</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr onclick="importExampleProject('D2XX Example 1')">
+                <td>D2XX Example 1</td>
+                <td>Configure and enumerate as a D2XX device with data loopback.</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+            <tr onclick="importExampleProject('D2XX Example UART Bridge')">
+                <td>D2XX Example UART Bridge</td>
+                <td>Enumerate as a D2XX device and bridge data to and from the UART interface.</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+    <h2>DAC Examples</h2>
+    <p>Analog to Digital Converter Examples.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>App Name</th>
+                <th>Description</th>
+                <th>Support FT90x</th>
+                <th>Support FT930x</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr onclick="importExampleProject('DAC Example 1')">
+                <td>DAC Example 1</td>
+                <td>Perform a series of single-shot DAC conversions.</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+            <tr onclick="importExampleProject('DAC Example 2')">
+                <td>DAC Example 2</td>
+                <td>Setup in a DAC in continuous mode and poll to send new data</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+            <tr onclick="importExampleProject('DAC Example 3')">
+                <td>DAC Example 3</td>
+                <td>Setup in a DAC in continuous mode and use an interrupt to send new data.</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+    <h2>Ethernet Examples</h2>
+    <p>Ethernet interface Examples.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>App Name</th>
+                <th>Description</th>
+                <th>Support FT90x</th>
+                <th>Support FT930x</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr onclick="importExampleProject('Ethernet Example 1')">
+                <td>Ethernet Example 1</td>
+                <td>Implementing ARP and ICMP Echo support to allow the device to respond to a "ping".</td>
+                <td>✅</td>
+                <td>❌</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+    <h2>FreeRTOS Examples</h2>
+    <p>Demonstrate a Port of FreeRTOS.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>App Name</th>
+                <th>Description</th>
+                <th>Support FT90x</th>
+                <th>Support FT930x</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr onclick="importExampleProject('FreeRTOS D2XX Example')">
+                <td>FreeRTOS D2XX Example</td>
+                <td>Within FreeRTOS, configure and enumerate as a D2XX device with data loopback.</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+            <tr onclick="importExampleProject('FreeRTOS Example 1')">
+                <td>FreeRTOS Example 1</td>
+                <td>Run a series of tasks using queues, switching with the pre-emptive scheduler.</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+            <tr onclick="importExampleProject('FreeRTOS Example 2')">
+                <td>FreeRTOS Example 2</td>
+                <td>Run a series of tasks using queues, semaphores, events and priority assignment.</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+            <tr onclick="importExampleProject('FreeRTOS Example 3')">
+                <td>FreeRTOS Example 3</td>
+                <td>Run a series of tasks using time slicing, pre-emptive scheduling using a mutex.</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+            <tr onclick="importExampleProject('FreeRTOS Example 4')">
+                <td>FreeRTOS Example 4</td>
+                <td>Run a series of tasks demonstrating FreeRTOS kernel aware debugging.</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+            <tr onclick="importExampleProject('FreeRTOS lwIP Example')">
+                <td>FreeRTOS lwIP Example</td>
+                <td>Use lwIP (lightweight IP stack) from FreeRTOS to perform Ethernet networking.</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+    <h2>GPIO Examples</h2>
+    <p>Show how the GPIO Interface can be used.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>App Name</th>
+                <th>Description</th>
+                <th>Support FT90x</th>
+                <th>Support FT930x</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr onclick="importExampleProject('GPIO DFU Example')">
+                <td>GPIO DFU Example</td>
+                <td>Enable the device to enter USB DFU mode when signalled by a GPIO.</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+            <tr onclick="importExampleProject('GPIO Example 1')">
+                <td>GPIO Example 1</td>
+                <td>Set the state of a GPIO output through polling.</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+            <tr onclick="importExampleProject('GPIO Example 2')">
+                <td>GPIO Example 2</td>
+                <td>Monitor the state of a GPIO input through polling.</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+            <tr onclick="importExampleProject('GPIO Example 3')">
+                <td>GPIO Example 3</td>
+                <td>Monitor the state of a GPIO input by interrupts.</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+    <h2>I2C Examples</h2>
+    <p>Send and Receive Data on the I2C Interfaces.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>App Name</th>
+                <th>Description</th>
+                <th>Support FT90x</th>
+                <th>Support FT930x</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr onclick="importExampleProject('I2C Master Example 1')">
+                <td>I2C Master Example 1</td>
+                <td>Send and receive data to an externally connected I2C slave device.</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+            <tr onclick="importExampleProject('I2C Master Example 2')">
+                <td>I2C Master Example 2</td>
+                <td>Send and receive data to an 24AA02E48T device. MM900EVx boards with Ethernet will have this device.</td>
+                <td>✅</td>
+                <td>❌</td>
+            </tr>
+            <tr onclick="importExampleProject('I2C Slave Example 1')">
+                <td>I2C Slave Example 1</td>
+                <td>Receive and reply to an I2C master device.</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+    <h2>I2S Examples</h2>
+    <p>Send and Receive Data on the I2C Interfaces.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>App Name</th>
+                <th>Description</th>
+                <th>Support FT90x</th>
+                <th>Support FT930x</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr onclick="importExampleProject('I2S Master Example 1')">
+                <td>I2S Master Example 1</td>
+                <td>Send a block of data to a codec. MM900EVx boards as fitted with a Wolfram WM8731 Codec.</td>
+                <td>✅</td>
+                <td>❌</td>
+            </tr>
+            <tr onclick="importExampleProject('I2S Master Example 2')">
+                <td>I2S Master Example 2</td>
+                <td>Send and receive data to and from a codec. MM900EVx boards as fitted with a Wolfram WM8731 Codec.</td>
+                <td>✅</td>
+                <td>❌</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+    <h2>PWM Examples</h2>
+    <p>Generate Waveforms on the PWM Interfaces.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>App Name</th>
+                <th>Description</th>
+                <th>Support FT90x</th>
+                <th>Support FT930x</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr onclick="importExampleProject('PWM Example 1')">
+                <td>PWM Example 1</td>
+                <td>Output a fixed duty cycle waveform.</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+            <tr onclick="importExampleProject('PWM Example 2')">
+                <td>PWM Example 2</td>
+                <td>Output a variable duty cycle waveform.</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+            <tr onclick="importExampleProject('PWM Example 3')">
+                <td>PWM Example 3</td>
+                <td>Output audible frequencies on the PWM.</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+    <h2>RTC Examples</h2>
+    <p>Real Time Clock Examples.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>App Name</th>
+                <th>Description</th>
+                <th>Support FT90x</th>
+                <th>Support FT930x</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr onclick="importExampleProject('RTC Example 1')">
+                <td>RTC Example 1</td>
+                <td>Internal RTC. Display the elapsed time recorded by the RTC.</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+            <tr onclick="importExampleProject('RTC Example 2')">
+                <td>RTC Example 2</td>
+                <td>Internal RTC. Demonstrate time matching on the RTC.</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+            <tr onclick="importExampleProject('RTC External Example 1')">
+                <td>RTC External Example 1</td>
+                <td>External RTC on MM900EVx boards. Display time and elapsed time recorded by the RTC.</td>
+                <td>✅</td>
+                <td>❌</td>
+            </tr>
+            <tr onclick="importExampleProject('RTC External Example 2')">
+                <td>RTC External Example 2</td>
+                <td>External RTC on MM900EVx boards. Demonstrate time matching on the RTC.</td>
+                <td>✅</td>
+                <td>❌</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+    <h2>SD Host Examples</h2>
+    <p>Examples for the SD Card reader.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>App Name</th>
+                <th>Description</th>
+                <th>Support FT90x</th>
+                <th>Support FT930x</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr onclick="importExampleProject('SD Host Example 1')">
+                <td>SD Host Example 1</td>
+                <td>Reads a filesystem on an SD card. Writes, reads and deletes a file.</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+    <h2>SPI Examples</h2>
+    <p>Send and Receive Data on the SPI Interfaces.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>App Name</th>
+                <th>Description</th>
+                <th>Support FT90x</th>
+                <th>Support FT930x</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr onclick="importExampleProject('SPI Master Example 1')">
+                <td>SPI Master Example 1</td>
+                <td>Send and receive data from an SPI device.</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+            <tr onclick="importExampleProject('SPI Master Example 2')">
+                <td>SPI Master Example 2</td>
+                <td>Send and receive data from an SPI device using a FIFO buffer.</td>
+                <td>✅</td>
+                <td>❌</td>
+            </tr>
+            <tr onclick="importExampleProject('SPI Master Example 3')">
+                <td>SPI Master Example 3</td>
+                <td>Send and receive data from an SPI device using 4-bit mode.</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+            <tr onclick="importExampleProject('SPI Slave Example 1')">
+                <td>SPI Slave Example 1</td>
+                <td>Receive and reply to an SPI master device.</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+    <h2>Timer Examples</h2>
+    <p>Internal Timer Examples.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>App Name</th>
+                <th>Description</th>
+                <th>Support FT90x</th>
+                <th>Support FT930x</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr onclick="importExampleProject('Timer Example 1')">
+                <td>Timer Example 1</td>
+                <td>Demonstrate multiple times using single-shot mode.</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+            <tr onclick="importExampleProject('Timer Example 2')">
+                <td>Timer Example 2</td>
+                <td>Demonstrate multiple times using continuous mode.</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+            <tr onclick="importExampleProject('Timer Example 3')">
+                <td>Timer Example 3</td>
+                <td>Demonstrate multiple times using continuous mode and being serviced by an interrupt.</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+    <h2>UART Examples</h2>
+    <p>Send and Receive Data on the UART Interfaces.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>App Name</th>
+                <th>Description</th>
+                <th>Support FT90x</th>
+                <th>Support FT930x</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr onclick="importExampleProject('UART 9Bit Mode Example')">
+                <td>UART 9Bit Mode Example</td>
+                <td>Loop back characters between UARTs in 9-bit mode.</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+            <tr onclick="importExampleProject('UART Example 1')">
+                <td>UART Example 1</td>
+                <td>Echo back characters received on the UART.</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+            <tr onclick="importExampleProject('UART Example 2')">
+                <td>UART Example 2</td>
+                <td>Echo back characters received on the UART using interrupts.</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+            <tr onclick="importExampleProject('UART Example 3')">
+                <td>UART Example 3</td>
+                <td>Echo back characters received on the UART using a FIFO.</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+            <tr onclick="importExampleProject('UART Example 4')">
+                <td>UART Example 4</td>
+                <td>Echo back characters received on the UART using auto-flow control modes.</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+    <h2>USBD Examples</h2>
+    <p>USB Device Examples - Examples for the USB Device Interface.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>App Name</th>
+                <th>Description</th>
+                <th>Support FT90x</th>
+                <th>Support FT930x</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr onclick="importExampleProject('USBD Example BOMS to SDcard')">
+                <td>USBD Example BOMS to SDcard</td>
+                <td>Implement a BOMS device (Flash disk) on the USB bridged to the file system on an SD card.</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+            <tr onclick="importExampleProject('USBD Example CDCACM')">
+                <td>USBD Example CDCACM</td>
+                <td>Enumerate as a CDC device on the USB which supports the ACM protocol.</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+            <tr onclick="importExampleProject('USBD Example Composite')">
+                <td>USBD Example Composite</td>
+                <td>Demonstrate how to make a composite USB device.</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+            <tr onclick="importExampleProject('USBD Example HID')">
+                <td>USBD Example HID</td>
+                <td>Make a USB keyboard device appear on the host and send a series of key presses.</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+            <tr onclick="importExampleProject('USBD Example HID Bridge')">
+                <td>USBD Example HID Bridge</td>
+                <td>A USB keyboard device that will send a series of key presses translated from UART input characters.</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+    <h2>USBH Examples</h2>
+    <p>USB Host Examples - Examples for the USB Host Interface.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>App Name</th>
+                <th>Description</th>
+                <th>Support FT90x</th>
+                <th>Support FT930x</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr onclick="importExampleProject('USBH Example BOMS')">
+                <td>USBH Example BOMS</td>
+                <td>Read a BOMS device (Flash disk) plugged into the USB host.</td>
+                <td>✅</td>
+                <td>❌</td>
+            </tr>
+            <tr onclick="importExampleProject('USBH Example CDCACM')">
+                <td>USBH Example CDCACM</td>
+                <td>Connect to and send data to and from a CDC device on the USB.</td>
+                <td>✅</td>
+                <td>❌</td>
+            </tr>
+            <tr onclick="importExampleProject('USBH Example File System')">
+                <td>USBH Example File System</td>
+                <td>Reads a filesystem on an Flash disk. Writes, reads and deletes a file.</td>
+                <td>✅</td>
+                <td>❌</td>
+            </tr>
+            <tr onclick="importExampleProject('USBH Example FT232')">
+                <td>USBH Example FT232</td>
+                <td>Connect to and send data to and from an FT232 device on the USB.</td>
+                <td>✅</td>
+                <td>❌</td>
+            </tr>
+            <tr onclick="importExampleProject('USBH Example HID')">
+                <td>USBH Example HID</td>
+                <td>Find USB HIDs on the USB and display report data from the device.</td>
+                <td>✅</td>
+                <td>❌</td>
+            </tr>
+            <tr onclick="importExampleProject('USBH Example HID to UART')">
+                <td>USBH Example HID to UART</td>
+                <td>Find USB HID keyboard or barcode scanners on the USB and translate report data from the device.</td>
+                <td>✅</td>
+                <td>❌</td>
+            </tr>
+            <tr onclick="importExampleProject('USBH Example Hub')">
+                <td>USBH Example Hub</td>
+                <td>Finds devices connected to the USB and shows information about them.</td>
+                <td>✅</td>
+                <td>❌</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+    <h2>Watchdog Examples</h2>
+    <p>Watchdog Examples - Examples for the Watchdog Timer.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>App Name</th>
+                <th>Description</th>
+                <th>Support FT90x</th>
+                <th>Support FT930x</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr onclick="importExampleProject('Watchdog Example 1')">
+                <td>Watchdog Example 1</td>
+                <td>Test the different modes of the internal watchdog timer.</td>
+                <td>✅</td>
+                <td>❌</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

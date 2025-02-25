@@ -1,0 +1,333 @@
+{
+  "name": "bridgetek-ft9xx",
+  "publisher": "Bridgetek",
+  "displayName": "Bridgetek FT9xx Extension",
+  "description": "Tools and utilities for working with Bridgetek FT9xx microcontrollers in Visual Studio Code.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Snippets",
+    "Debuggers",
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "bridgetek-ft9xx.regenerateTasks",
+        "title": "Regenerate tasks.json",
+        "category": "BridgeTek"
+      },
+      {
+        "command": "bridgetek-ft9xx.showProjectConfigPage",
+        "title": "Show Project Configuration",
+        "category": "BridgeTek"
+      },
+      {
+        "command": "bridgetek-ft9xx.showBinarySizeChart",
+        "title": "Show Binary Size Chart",
+        "category": "BridgeTek"
+      },
+      {
+        "command": "bridgetek-ft9xx.createTemplateProject",
+        "title": "Create project template",
+        "category": "BridgeTek"
+      },
+      {
+        "command": "bridgetek-ft9xx.showExampleApps",
+        "title": "Import the example projects from SDK package",
+        "category": "BridgeTek"
+      },
+      {
+        "command": "bridgetek-ft9xx.showWelcomePage",
+        "title": "Show Welcome Page",
+        "category": "BridgeTek"
+      },
+      {
+        "command": "bridgetek-ft9xx.showAddLayeredDriversWebview",
+        "title": "Adding the layered drivers",
+        "category": "BridgeTek"
+      },
+      {
+        "command": "bridgetek-ft9xx.showAddHardwareLibrariesWebview",
+        "title": "Adding the hardware libraries",
+        "category": "BridgeTek"
+      },
+      {
+        "command": "bridgetek-ft9xx.importHardwareLibProject",
+        "title": "Import the hardware libraries project",
+        "category": "BridgeTek"
+      },
+      {
+        "command": "bridgetek-ft9xx.selectBaudrate",
+        "title": "Select Baudrate",
+        "category": "BridgeTek"
+      },
+      {
+        "command": "bridgetek-ft9xx.selectBuildMode",
+        "title": "Select Build Mode",
+        "category": "BridgeTek"
+      },
+      {
+        "command": "bridgetek-ft9xx.selectChipset",
+        "title": "Select Chipset",
+        "category": "BridgeTek"
+      },
+      {
+        "command": "bridgetek-ft9xx.startDebugging",
+        "title": "Start Debugging (FT9xx) program",
+        "category": "BridgeTek"
+      },
+      {
+        "command": "bridgetek-ft9xx.showAdd3rdLibraryWebview",
+        "title": "Show Add Library Webview",
+        "category": "BridgeTek"
+      },
+      {
+        "command": "bridgetek-ft9xx.buildProject",
+        "title": "Build Project",
+        "category": "BridgeTek"
+      },
+      {
+        "command": "bridgetek-ft9xx.cleanBuild",
+        "title": "Clean Project Build",
+        "category": "BridgeTek"
+      },
+      {
+        "command": "bridgetek-ft9xx.programmingUart",
+        "title": "Programming via UART",
+        "category": "BridgeTek"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "FT9xx Extension Configuration",
+      "properties": {
+        "ft9xx.toolchainPath": {
+          "type": "string",
+          "default": "",
+          "description": "Path to the FT9xx Toolchain"
+        },
+        "ft9xx.sdkPath": {
+          "type": "string",
+          "default": "",
+          "description": "Path to the FT9xx SDK"
+        },
+        "ft9xx.buildTool": {
+          "type": "string",
+          "default": "make",
+          "enum": [
+            "Ninja",
+            "MinGW Makefiles"
+          ],
+          "description": "Build tool to use"
+        },
+        "ft9xx.baudrate": {
+          "type": "string",
+          "default": "921600",
+          "enum": [
+            "115200",
+            "921600"
+          ],
+          "description": "Baudrate for FT9xx programming"
+        },
+        "ft9xx.buildMode": {
+          "type": "string",
+          "default": "Debug",
+          "enum": [
+            "Debug",
+            "Release"
+          ],
+          "description": "Build configuration mode"
+        },
+        "ft9xx.chipset": {
+          "type": "string",
+          "default": "FT90x",
+          "enum": [
+            "FT90x",
+            "FT93x"
+          ],
+          "description": "Target FT9xx chipset"
+        },
+        "ft9xx.comPort": {
+          "type": "string",
+          "description": "Selected COM port for UART programming"
+        },
+        "ft9xx.thirdPartyLibs": {
+          "type": "array",
+          "description": "List of third-party libraries added to the project",
+          "items": {
+            "type": "string",
+            "enum": [
+              "FatFs",
+              "FreeRTOS",
+              "tinyprintf",
+              "lwIP",
+              "mbedTLS"
+            ]
+          }
+        },
+        "ft9xx.hardwareLibs": {
+          "type": "array",
+          "description": "List of hardware libraries to add to the project",
+          "items": {
+            "type": "string",
+            "enum": [
+              "ADC Driver",
+              "Bootstrap Driver",
+              "CAM Driver",
+              "CAN Driver",
+              "DAC Driver",
+              "Preset Delays",
+              "Datalogging Driver",
+              "Ethernet Driver",
+              "GPIO Driver",
+              "I2C Master Driver",
+              "I2C Slave Driver",
+              "I2S Driver",
+              "Interrupt Driver",
+              "MEMCTL Driver",
+              "PWM and PCM Driver",
+              "RTC Driver",
+              "SDHost Driver",
+              "SPI Driver",
+              "DFU Driver",
+              "SYS Driver",
+              "Timers Driver",
+              "UART Driver",
+              "USB Device Driver",
+              "USB Host Driver",
+              "Watchdog Driver"
+            ]
+          }
+        },
+        "ft9xx.layeredDrivers": {
+          "type": "array",
+          "description": "List of layered drivers to add to the project",
+          "items": {
+            "type": "string",
+            "enum": [
+              "USB Header Files",
+              "USB Host CDCACM",
+              "USB Host HID",
+              "USB Host BOMS",
+              "USB Host AOA",
+              "USB Device RNDIS"
+            ]
+          }
+        },
+        "ft9xx.projectName": {
+          "type": "string",
+          "description": "Name of the project"
+        },
+        "ft9xx.subWorkspace": {
+          "type": "boolean",
+          "description": "Use to determine if the project is a sub-workspace, preventing the creation of a new workspace"
+        },
+        "ft9xx.d2xxType": {
+          "type": "string",
+          "default": "",
+          "enum": [
+            "",
+            "d2xx",
+            "d2xx_rtos"
+          ],
+          "description": "FT9xx D2XX library type"
+        },
+        "ft9xx.customDefinedFlags": {
+          "type": "array",
+          "default": "",
+          "description": "Custom defined flags for the project (EX: DEBUG)"
+        },
+        "ft9xx.customLinkerFlags": {
+          "type": "array",
+          "default": "",
+          "description": "Custom linker flags for the project (EX: -L\"path/to/lib\")"
+        }
+      }
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "BridgetekExtensionView",
+          "title": "BridgeTek",
+          "icon": "resources/Bridgetek-Logo-1.png.svg"
+        }
+      ]
+    },
+    "views": {
+      "BridgetekExtensionView": [
+        {
+          "id": "BridgeTekProjectView",
+          "name": "Project View"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Bridgetek/ft9xx-vscode"
+  },
+  "keywords": [
+    "FT9xx",
+    "Bridgetek",
+    "microcontroller",
+    "toolchain"
+  ],
+  "author": "Bridgetek-HoTanDat",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/chart.js": "^2.9.41",
+    "@types/mocha": "^10.0.9",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.95.0",
+    "@typescript-eslint/eslint-plugin": "^8.10.0",
+    "@typescript-eslint/parser": "^8.7.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "eslint": "^9.13.0",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "@types/serialport": "^8.0.5",
+    "chart.js": "^4.4.7",
+    "serialport": "^12.0.0",
+    "vscode-languageclient": "^7.0.0"
+  },
+  "extensionDependencies": [
+    "ms-vscode.cpptools",
+    "ms-vscode.cmake-tools",
+    "mcu-debug.rtos-views",
+    "webfreak.debug",
+    "trond-snekvik.gnu-mapfiles",
+    "twxs.cmake",
+    "ms-vscode.hexeditor",
+    "maziac.asm-code-lens"
+  ],
+  "icon": "resources/Icon.jpg",
+  "pricing": "Free",
+  "files": [
+    "out",
+    "resources",
+    "media",
+    "html",
+    "src",
+    "src/ProjectTemplate/",
+    "src/CMakeListsTemplate.cmake",
+    "package.json",
+    "README.md",
+    "LICENSE"
+  ]
+}
