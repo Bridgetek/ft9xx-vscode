@@ -316,6 +316,7 @@
     "ms-vscode.hexeditor",
     "maziac.asm-code-lens"
   ],
+  "icon": "resources/Icon.jpg",
   "pricing": "Free",
   "files": [
     "out",
