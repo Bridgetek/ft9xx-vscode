@@ -306,6 +306,16 @@
     "serialport": "^12.0.0",
     "vscode-languageclient": "^7.0.0"
   },
+  "extensionDependencies": [
+    "ms-vscode.cpptools",
+    "ms-vscode.cmake-tools",
+    "mcu-debug.rtos-views",
+    "webfreak.debug",
+    "trond-snekvik.gnu-mapfiles",
+    "twxs.cmake",
+    "ms-vscode.hexeditor",
+    "maziac.asm-code-lens"
+  ],
   "pricing": "Free",
   "files": [
     "out",
