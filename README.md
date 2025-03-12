@@ -25,11 +25,11 @@ Customize the project via features:
 
 - Visual Studio Code
 - CMake
-- FT9xx SDK and toolchain installed on your system [Here][ft9xx-toolchain] (V2.9.0 or higher).
+- FT9xx SDK and toolchain installed on your system [Here][ft9xx-toolchain] (V2.8.2 or higher).
 
 ## Installation
 
-1. Install Visual Studio Code from [here](https://code.visualstudio.com/) (V2.9.0 or newer).
+1. Install Visual Studio Code from [here](https://code.visualstudio.com/).
 2. Install the FT9xx SDK and toolchain on your system.
 3. Install the `bridgetek-ft9xx` extension from the Visual Studio Code Marketplace or by using the VSIX package.
 
