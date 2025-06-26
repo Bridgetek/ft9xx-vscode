@@ -379,14 +379,11 @@ vector_table:
 .section .text
 .global __gxx_personality_sj0
 __gxx_personality_sj0:
-
-
-.section ._flash_d2xx_config
+.section ._flash_d2xx_config, "a"
 .global __pD2XXDefaultConfiguration
 .align (10)
 
 D2XX_partition_start = .
-
 .if IS_IMG_D2XX_PRESENT
 .ifdef __FT930__
 .include "ft930_d2xx_default_config.inc"
@@ -394,21 +391,19 @@ D2XX_partition_start = .
 .include "ft900_d2xx_default_config.inc"
 .endif
 .endif
-
 D2XX_partition_end = .
 
-.section ._flash_dlog_partition
+.section ._flash_dlog_partition, "a"
 .align (10)
 .global __dlog_partition
 __dlog_partition:
 dlog_partition_start = .
 .if IS_IMG_DLOG_PRESENT
-        .long	0xF7D1D106
-        .rept  (0x1000-4)
-        .byte	0xFF
+        .long   0xF7D1D106
+        .rept   (0x1000-4)
+        .byte   0xFF
         .endr
 .endif
-
 dlog_partition_end = .
 
 .section ._pm
