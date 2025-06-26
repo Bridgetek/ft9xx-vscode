@@ -4,6 +4,7 @@
   "displayName": "Bridgetek FT9xx Extension",
   "description": "Tools and utilities for working with Bridgetek FT9xx microcontrollers in Visual Studio Code.",
   "version": "0.0.1",
+  "icon": "resources/Icon.jpg",
   "engines": {
     "vscode": "^1.95.0"
   },
@@ -20,87 +21,87 @@
       {
         "command": "bridgetek-ft9xx.regenerateTasks",
         "title": "Regenerate tasks.json",
-        "category": "BridgeTek"
+        "category": "Bridgetek"
       },
       {
         "command": "bridgetek-ft9xx.showProjectConfigPage",
         "title": "Show Project Configuration",
-        "category": "BridgeTek"
+        "category": "Bridgetek"
       },
       {
         "command": "bridgetek-ft9xx.showBinarySizeChart",
         "title": "Show Binary Size Chart",
-        "category": "BridgeTek"
+        "category": "Bridgetek"
       },
       {
         "command": "bridgetek-ft9xx.createTemplateProject",
         "title": "Create project template",
-        "category": "BridgeTek"
+        "category": "Bridgetek"
       },
       {
         "command": "bridgetek-ft9xx.showExampleApps",
         "title": "Import the example projects from SDK package",
-        "category": "BridgeTek"
+        "category": "Bridgetek"
       },
       {
         "command": "bridgetek-ft9xx.showWelcomePage",
         "title": "Show Welcome Page",
-        "category": "BridgeTek"
+        "category": "Bridgetek"
       },
       {
         "command": "bridgetek-ft9xx.showAddLayeredDriversWebview",
         "title": "Adding the layered drivers",
-        "category": "BridgeTek"
+        "category": "Bridgetek"
       },
       {
         "command": "bridgetek-ft9xx.showAddHardwareLibrariesWebview",
         "title": "Adding the hardware libraries",
-        "category": "BridgeTek"
+        "category": "Bridgetek"
       },
       {
         "command": "bridgetek-ft9xx.importHardwareLibProject",
         "title": "Import the hardware libraries project",
-        "category": "BridgeTek"
+        "category": "Bridgetek"
       },
       {
         "command": "bridgetek-ft9xx.selectBaudrate",
         "title": "Select Baudrate",
-        "category": "BridgeTek"
+        "category": "Bridgetek"
       },
       {
         "command": "bridgetek-ft9xx.selectBuildMode",
         "title": "Select Build Mode",
-        "category": "BridgeTek"
+        "category": "Bridgetek"
       },
       {
         "command": "bridgetek-ft9xx.selectChipset",
         "title": "Select Chipset",
-        "category": "BridgeTek"
+        "category": "Bridgetek"
       },
       {
         "command": "bridgetek-ft9xx.startDebugging",
         "title": "Start Debugging (FT9xx) program",
-        "category": "BridgeTek"
+        "category": "Bridgetek"
       },
       {
         "command": "bridgetek-ft9xx.showAdd3rdLibraryWebview",
         "title": "Show Add Library Webview",
-        "category": "BridgeTek"
+        "category": "Bridgetek"
       },
       {
         "command": "bridgetek-ft9xx.buildProject",
         "title": "Build Project",
-        "category": "BridgeTek"
+        "category": "Bridgetek"
       },
       {
         "command": "bridgetek-ft9xx.cleanBuild",
         "title": "Clean Project Build",
-        "category": "BridgeTek"
+        "category": "Bridgetek"
       },
       {
         "command": "bridgetek-ft9xx.programmingUart",
         "title": "Programming via UART",
-        "category": "BridgeTek"
+        "category": "Bridgetek"
       }
     ],
     "configuration": {
@@ -254,7 +255,7 @@
       "activitybar": [
         {
           "id": "BridgetekExtensionView",
-          "title": "BridgeTek",
+          "title": "Bridgetek",
           "icon": "resources/Bridgetek-Logo-1.png.svg"
         }
       ]
@@ -262,6 +263,7 @@
     "views": {
       "BridgetekExtensionView": [
         {
+          "icon": "resources/Bridgetek-Logo-1.png.svg",
           "id": "BridgeTekProjectView",
           "name": "Project View"
         }
@@ -316,7 +318,6 @@
     "ms-vscode.hexeditor",
     "maziac.asm-code-lens"
   ],
-  "icon": "resources/Icon.jpg",
   "pricing": "Free",
   "files": [
     "out",

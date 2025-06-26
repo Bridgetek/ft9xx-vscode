@@ -1,4 +1,4 @@
-# BridgeTek FT9XX Extension
+# Bridgetek FT9XX Extension
 
 This is the README for the extension "bridgetek-ft9xx". This extension provides tools and utilities for working with Bridgetek FT9xx microcontrollers in Visual Studio Code.
 
