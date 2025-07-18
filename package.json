@@ -3,7 +3,7 @@
   "publisher": "Bridgetek",
   "displayName": "Bridgetek FT9xx Extension",
   "description": "Tools and utilities for working with Bridgetek FT9xx microcontrollers in Visual Studio Code.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "icon": "resources/Icon.jpg",
   "engines": {
     "vscode": "^1.95.0"
@@ -120,7 +120,7 @@
         },
         "ft9xx.buildTool": {
           "type": "string",
-          "default": "make",
+          "default": "Ninja",
           "enum": [
             "Ninja",
             "MinGW Makefiles"

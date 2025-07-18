@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.2] - 18-07-2025
+
+- Fixed the error regarding the default build tool (Ninja is set by default)
+
 ## [0.0.1] - 21-02-2025
 
 ### Added
@@ -21,4 +25,5 @@ Integrated real-time debugging via Bridgetek’s tools enables step-by-step exec
 Seamlessly access and utilize Bridgetek’s optimized libraries and example projects to accelerate development for HMI, IoT, and industrial applications.
 
 [unreleased]: https://github.com/Bridgetek/ft9xx-vscode/releases...HEAD
-[0.0.1]: https://github.com/Bridgetek/ft9xx-vscode/releases
+[0.0.2]: https://github.com/Bridgetek/ft9xx-vscode/releases/tag/v0.0.2
+[0.0.1]: https://github.com/Bridgetek/ft9xx-vscode/releases/tag/v0.0.1

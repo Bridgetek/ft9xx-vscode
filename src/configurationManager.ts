@@ -176,7 +176,7 @@ export class ConfigurationManager {
 
     public getBuildTool(): string {
         const config = vscode.workspace.getConfiguration().get('ft9xx', vscode.ConfigurationTarget.Global);
-        return (config as any)['buildTool'] || '';
+        return (config as any)['buildTool'] || 'Ninja';
     }
 
     public generateDefaultCCppPropertiesJson(vscodeFolderPath: string) {
